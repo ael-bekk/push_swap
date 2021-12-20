@@ -6,15 +6,15 @@
 /*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:04:58 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/15 10:14:30 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:07:23 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int		find_nb(int *arr, int size, int nb)
+int	find_nb(int *arr, int size, int nb)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < size)
@@ -23,11 +23,11 @@ int		find_nb(int *arr, int size, int nb)
 	return (0);
 }
 
-int     *sort_arr(char **splt, int ac)
+int	*sort_arr(char **splt, int ac)
 {
-	int i;
+	int	i;
 	int	j;
-	int tmp;
+	int	tmp;
 	int	*arr;
 
 	i = -1;
@@ -52,7 +52,7 @@ int     *sort_arr(char **splt, int ac)
 	return (arr);
 }
 
-int		*init_arr(char **splt, int ac)
+int	*init_arr(char **splt, int ac)
 {
 	int	tmp;
 	int	i;
@@ -70,12 +70,11 @@ int		*init_arr(char **splt, int ac)
 	return (arr);
 }
 
-t_list  *check_nbrs2(char **splt, int ac)
+t_list	*check_nbrs2(char **splt, int ac)
 {
-	int     valid;
-	int     *arr;
-	t_list  *head;
-
+	int		valid;
+	int		*arr;
+	t_list	*head;
 
 	head = NULL;
 	valid = valid_args(splt, ac);

@@ -6,13 +6,13 @@
 /*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:06:28 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/15 10:14:01 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2021/12/20 13:11:28 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void    s(t_list **a, t_list **b, char c)
+void	s(t_list **a, t_list **b, char c)
 {
 	write(1, "s", 1);
 	write(1, &c, 1);

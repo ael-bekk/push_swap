@@ -6,7 +6,7 @@
 /*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:38:50 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/15 10:11:13 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2021/12/19 17:07:28 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,25 +79,18 @@ void	check_opers(t_list **head_a, t_list **head_b)
 
 int	main(int ac, char **av)
 {
-	int		f;
 	char	**splt;
+	char	*join;
 	t_list	*head_a;
 	t_list	*head_b;
 
 	ft_init(&head_a, &head_b);
-	f = 0;
-	splt = NULL;
 	if (ac == 1)
 		return (0);
-	if (ac == 2)
-	{
-		splt = ft_split(av[1], ' ');
-		ac = count_strings(splt) + 1;
-		f = 1;
-	}
-	else
-		splt = &av[1];
-	head_a = check_nbrs(splt, ac - 1);
+	join = join_args(&av[1], ac - 1);
+	splt = ft_split(join, ' ');
+	ac = count_strings(splt);
+	head_a = check_nbrs(splt, ac);
 	if (head_a)
 		check_opers(&head_a, &head_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 18:17:46 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/15 10:19:22 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:08:34 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*find_node(t_list *head, int val, int *size)
 {
-	t_list  *tmp;
+	t_list	*tmp;
 	t_list	*res;
 
 	if (!head || !head->next || head->val == val)

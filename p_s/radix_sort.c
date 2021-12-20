@@ -6,7 +6,7 @@
 /*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 16:36:14 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/15 10:15:24 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2021/12/19 14:08:09 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,27 @@ int	bit_shift(t_list *a)
 	{
 		a->val >>= 1;
 		if (a->val)
-            valid = true;
+			valid = true;
 		a = a->next;
 	}
 	return (valid);
 }
 
-void	a_to_b(t_list **a, t_list **b)
+int	enough(t_list *a)
 {
-	int		ret;
+	while (a && a->val % 2 == 0)
+		a = a->next;
+	while (a && a->val % 2 == 1)
+		a = a->next;
+	return (a == NULL);
+}
+
+void	a_to_b(t_list **a, t_list **b, int valid)
+{
+	int	ret;
 
 	ret = ft_lstsize(*a);
-	while (ret--)
+	while (ret-- && is_not_sorted(*a))
 	{
 		if ((*a)->val % 2)
 		{
@@ -52,6 +61,8 @@ void	a_to_b(t_list **a, t_list **b)
 		}
 		else
 			p(a, b, 'b');
+		if (valid && enough(*a))
+			ret = 0;
 	}
 }
 
@@ -64,9 +75,12 @@ void	radix_sort(t_list **a, t_list **b)
 	{
 		if (is_not_sorted(*a) == false)
 			return ;
-		a_to_b(a, b);
-		while (*b)
-			p(a, b, 'a');
+		if (!enough(*a))
+		{
+			a_to_b(a, b, ft_lstlast(*a, 0)->val % 2 == 0);
+			while (*b)
+				p(a, b, 'a');
+		}
 		valid = bit_shift(*a);
 	}
 }
