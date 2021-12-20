@@ -3,7 +3,7 @@
 Blue='\033[0;34m'
 Purple='\033[0;35m'
 Cyan='\033[0;36m'
-
+BYellow='\033[1;33m'
 white='\033[1;37m'
 green='\033[0;32m'
 red='\033[0;31m'
@@ -20,7 +20,7 @@ then
     fi
 fi
 
-if ! [ -f $1 ]
+if ! [ -f "$1" ]
 then
 	echo -e "${red}Error : ${white}push_swap ${reset}" >&2 ; exit
 fi
@@ -120,6 +120,7 @@ mkdir -p tests
 echo -e "\n${green}<____________________________________Tester___________________________________>${reset}"
 echo -e "\n${white}Rmandom of${red} Two${white} Numbers :${reset}"
 mkdir -p tests/gen_2
+avr=0
 for ((j = 0 ; j < times ; j++ ))
 do
 
@@ -133,8 +134,13 @@ do
 	echo -en "${yell}checher ${green}${res} : ${reset}"
 	test_100 "$count" 2
 	echo -e "${reset} Instruction."
+	avr=$(($avr + $count))
 done
+echo -en "${BYellow}average : "
+test_100 "$(($avr / $times))"
+echo ""
 
+avr=0
 echo -e "\n${white}Random of ${red}3 ${white}Numbers :${reset}"
 mkdir -p tests/gen_3
 for ((j = 0 ; j < times ; j++ ))
@@ -149,8 +155,13 @@ do
 	echo -en "${yell}checher ${green}${res} : ${reset}"
 	test_100 "$count" 3
 	echo -e "${reset} Instruction."
+	avr=$(($avr + $count))
 done
+echo -en "${BYellow}average : "
+test_100 "$(($avr / $times))"
+echo ""
 
+avr=0
 echo -e "\n${white}Random of ${red}5 ${white}Numbers :${reset}"
 mkdir -p tests/gen_5
 for ((j = 0 ; j < times ; j++ ))
@@ -165,8 +176,13 @@ do
 	echo -en "${yell}checher ${green}${res} : ${reset}"
 	test_100 "$count" 5
 	echo -e "${reset} Instruction."
+	avr=$(($avr + $count))
 done
+echo -en "${BYellow}average : "
+test_100 "$(($avr / $times))"
+echo ""
 
+avr=0
 echo -e "\n${white}Random of ${red}100 ${white}Numbers :${reset}"
 mkdir -p tests/gen_100
 for ((j = 0 ; j < times ; j++ ))
@@ -181,8 +197,13 @@ do
 	echo -en "${yell}checher${green}${res} : ${reset}"
 	test_100 "$count" 100
 	echo -e "${reset} Instruction."
+	avr=$(($avr + $count))
 done
+echo -en "${BYellow}average : "
+test_100 "$(($avr / $times))"
+echo ""
 
+avr=0
 echo -e "\n${white}Random of ${red}500 ${white}Numbers :${reset}"
 mkdir -p tests/gen_500
 for ((j = 0 ; j < times ; j++ ))
@@ -197,5 +218,9 @@ do
 	echo -en "${yell}checher ${green}${res} : ${reset}"
 	test_100 "$count" 500
 	echo -e "${reset} Instruction."
+	avr=$(($avr + $count))
 done
+echo -en "${BYellow}average : "
+test_100 "$(($avr / $times))"
+echo ""
 echo ""
