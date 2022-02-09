@@ -85,9 +85,9 @@ void	sort_five(t_list **a, t_list **b);
 
 //---------- sort_100 ----------//
 void	sort_hundred(t_list **a, t_list **b);
-void	move_b_a(t_list **a, t_list **b);
+void	move_b_a(t_list **a, t_list **b, int size);
 void	push_a_b(t_list **a, t_list **b);
-void	move_a_b(t_list **a, t_list **b);
+void	move_a_b(t_list **a, t_list **b, int size);
 char	best_move(t_list *a, int div, int p, int g);
 void	r(t_list **lst, char ab, char r);
 int		less_than(t_list *a, int val);

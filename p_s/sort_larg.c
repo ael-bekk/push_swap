@@ -33,11 +33,8 @@ static void	move_100_a_b(t_list **a, t_list **b)
 	}
 }
 
-static void	move_100_b_a(t_list **a, t_list **b)
+static void	move_100_b_a(t_list **a, t_list **b, int index)
 {
-	int	index;
-
-	index = 500;
 	while (--index >= 0)
 	{
 		move_to_top(b, index, 'b');
@@ -45,13 +42,13 @@ static void	move_100_b_a(t_list **a, t_list **b)
 	}
 }
 
-static void	move_fh_a_b(t_list **a, t_list **b)
+static void	move_fh_a_b(t_list **a, t_list **b,  int size)
 {
 	int		div;
 	char	c;
 
-	div = 250;
-	while (div < 500)
+	div = size / 2;
+	while (div < size)
 	{
 		c = best_move(*a, div, 1, 0);
 		while (best_move(*a, div, 1, 0) != -1)
@@ -62,16 +59,16 @@ static void	move_fh_a_b(t_list **a, t_list **b)
 			else
 				r(a, 'a', c);
 		}
-		div += 100;
+		div += size / 5;
 	}
 }
 
-static void	move_fh_b_a(t_list **a, t_list **b)
+static void	move_fh_b_a(t_list **a, t_list **b, int size)
 {
 	int		div;
 	char	c;
 
-	div = 500;
+	div = size;
 	while (div >= 0)
 	{
 		c = best_move(*b, div, 0, 1);
@@ -83,14 +80,17 @@ static void	move_fh_b_a(t_list **a, t_list **b)
 			else
 				r(b, 'b', c);
 		}
-		div -= 50;
+		div -= size / 10;
 	}
 }
 
 void	sort_five_hund(t_list **a, t_list **b)
 {
-	move_fh_a_b(a, b);
-	move_fh_b_a(a, b);
+	int		size;
+
+	size = ft_lstsize(*a);
+	move_fh_a_b(a, b, size);
+	move_fh_b_a(a, b, size);
 	move_100_a_b(a, b);
-	move_100_b_a(a, b);
+	move_100_b_a(a, b, size);
 }

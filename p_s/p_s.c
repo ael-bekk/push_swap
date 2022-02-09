@@ -22,9 +22,9 @@ void	ft_sort(t_list **a, t_list **b, int ac)
 		sort_tree(a, 'a');
 	else if (ac == 5)
 		sort_five(a, b);
-	else if (ac == 100)
+	else if (ac <= 100 && ac > 11)
 		sort_hundred(a, b);
-	else if (ac == 500)
+	else if (ac <= 1000 && ac > 100)
 		sort_five_hund(a, b);
 	else
 		radix_sort(a, b);
