@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
+/*   By: ael-bekk <ael-bekk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:38:50 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/19 17:07:28 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2023/03/26 21:49:15 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	check_opers(t_list **head_a, t_list **head_b)
 	}
 	check_stacks(head_a, head_b);
 }
+
+#include "stdio.h"
 
 int	main(int ac, char **av)
 {

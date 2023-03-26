@@ -18,13 +18,13 @@ AFFICH_INTRO = header/aff_stacks1.c header/aff_stacks2.c header/min.c
 SRC_CHECKER = check/checker.c check/errors.c header/aff_stacks1.c \
 			  header/aff_stacks2.c p_s/s_p_r_rr_operations.c check/joine_args.c
 
-SRC_P_S = p_s/do_op.c p_s/sort_3_4_5.c p_s/p_s.c p_s/radix_sort.c \
-		  p_s/init_sort.c p_s/s_p_r_rr_operations.c header/aff_stacks1.c p_s/sort_hund.c p_s/sort_hund2.c p_s/sort_larg.c \
-		  header/aff_stacks2.c check/errors.c check/joine_args.c
+SRC_P_S = p_s/do_op.c p_s/sort_3_4_5.c p_s/p_s.c p_s/push_swap.c\
+		  p_s/init_sort.c p_s/s_p_r_rr_operations.c header/aff_stacks1.c \
+		  header/aff_stacks2.c check/errors.c check/joine_args.c 
 
 GEN = gen/generat_test.c
 
-GFLAGS = cc -Wextra -Wall -Werror
+GFLAGS = cc -Wextra -Wall -Werror -fsanitize=address
 
 all : $(CHECKER) $(PUSH_SWAP)
 

@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3_4_5.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
+/*   By: ael-bekk <ael-bekk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 19:04:03 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/19 16:51:09 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:22:08 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+int	is_not_sorted(t_list *a)
+{
+	while (a && a->next)
+	{
+		if (a->val > a->next->val)
+			return (true);
+		a = a->next;
+	}
+	return (false);
+}
 
 void	aff_r(t_list **lst, char t, char ab)
 {

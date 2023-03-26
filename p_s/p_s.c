@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p_s.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bekk <abekkali451@gmail.com>           +#+  +:+       +#+        */
+/*   By: ael-bekk <ael-bekk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 10:09:51 by ael-bekk          #+#    #+#             */
-/*   Updated: 2021/12/19 16:36:09 by ael-bekk         ###   ########.fr       */
+/*   Updated: 2023/03/26 11:19:11 by ael-bekk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ void	ft_sort(t_list **a, t_list **b, int ac)
 		sort_tree(a, 'a');
 	else if (ac == 5)
 		sort_five(a, b);
-	else if (ac <= 100 && ac > 11)
-		sort_hundred(a, b);
-	else if (ac <= 1000 && ac > 100)
-		sort_five_hund(a, b);
 	else
-		radix_sort(a, b);
+		sort_stack(a, b);
 }
 
 int	main(int ac, char **av)
@@ -48,27 +44,3 @@ int	main(int ac, char **av)
 		ft_sort(&head_a, &head_b, ac);
 	return (0);
 }
-/*
-int main(int ac, char **av)
-{
-	int		f;
-	char	**split;
-	t_list	*head_a;
-	t_list	*head_b;
-
-	ft_init(&head_a, &head_b);
-	if (ac == 1)
-		return (0);
-	if (ac == 2)
-	{
-		split = ft_split(av[1], ' ');
-		ac = count_strings(split) + 1;
-		f = 1;
-	}
-	else
-		split = &av[1];
-	head_a = check_nbrs2(split, ac - 1);
-	if (head_a)
-		ft_sort(&head_a, &head_b, ac - 1);
-	return (0);
-}*/
